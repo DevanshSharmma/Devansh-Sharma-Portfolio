@@ -1,0 +1,1440 @@
+< !DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Devansh Sharma | Portfolio</title><style>@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #050b16;
+    --bg2: #091321;
+    --card: #0a1727;
+    --text: #eef6ff;
+    --muted: #91a2b8;
+    --cyan: #38d8ff;
+    --purple: #9268ff;
+    --orange: #ffae24;
+    --border: rgba(99, 181, 255, 0.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Space Grotesk", sans-serif;
+    overflow-x: hidden;
+}
+
+body.light {
+    --bg: #edf4fa;
+    --bg2: #ffffff;
+    --card: #ffffff;
+    --text: #071321;
+    --muted: #53667c;
+    --border: rgba(25, 83, 130, 0.2);
+}
+
+/* =========================
+       BACKGROUND
+    ========================== */
+
+.background-grid {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background:
+        linear-gradient(rgba(50, 130, 190, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(50, 130, 190, 0.045) 1px, transparent 1px);
+    background-size: 70px 70px;
+}
+
+.glow {
+    position: fixed;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(130px);
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.glow.one {
+    background: var(--cyan);
+    top: -200px;
+    left: 10%;
+}
+
+.glow.two {
+    background: var(--purple);
+    bottom: -250px;
+    right: 5%;
+}
+
+/* =========================
+       NAVBAR
+    ========================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 6%;
+    border-bottom: 1px solid var(--border);
+
+    background: rgba(5, 11, 22, 0.88);
+    backdrop-filter: blur(20px);
+}
+
+body.light header {
+    background: rgba(237, 244, 250, 0.9);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--cyan);
+    border-radius: 10px;
+
+    color: var(--cyan);
+    font-family: Orbitron;
+    font-weight: bold;
+
+    box-shadow: 0 0 20px rgba(56, 216, 255, 0.25);
+}
+
+.brand h3 {
+    font-family: Orbitron;
+    font-size: 13px;
+}
+
+.brand small {
+    color: var(--muted);
+    letter-spacing: 2px;
+    font-size: 8px;
+}
+
+.mode-switch {
+    display: flex;
+    padding: 4px;
+    gap: 4px;
+
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    background: rgba(10, 22, 38, 0.8);
+}
+
+.mode-switch button {
+    border: none;
+    background: transparent;
+    color: var(--muted);
+
+    padding: 10px 18px;
+    border-radius: 11px;
+
+    cursor: pointer;
+    font-family: "Space Grotesk";
+    transition: 0.3s;
+}
+
+.mode-switch button.active {
+    color: white;
+    background: linear-gradient(90deg, #126c88, #25549b);
+    box-shadow: 0 0 20px rgba(56, 216, 255, 0.2);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-btn,
+.resume-btn {
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text);
+
+    padding: 10px 14px;
+    border-radius: 10px;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.resume-btn:hover,
+.icon-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+/* =========================
+       HERO
+    ========================== */
+
+.hero {
+    max-width: 1400px;
+    margin: auto;
+    padding: 45px 30px 25px;
+}
+
+.eyebrow {
+    color: var(--cyan);
+    font-family: Orbitron;
+    letter-spacing: 3px;
+    font-size: 12px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 9px;
+    height: 9px;
+    background: var(--cyan);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+.hero h1 {
+    font-family: Orbitron;
+    font-size: clamp(32px, 5vw, 60px);
+    margin-top: 12px;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* =========================
+       DRIVE ARENA
+    ========================== */
+
+.arena {
+    position: relative;
+
+    max-width: 1400px;
+    height: min(70vh, 700px);
+    min-height: 520px;
+
+    margin: auto;
+    overflow: hidden;
+
+    border: 1px solid rgba(76, 171, 235, 0.3);
+    border-radius: 28px;
+
+    background:
+        linear-gradient(rgba(57, 132, 190, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 132, 190, 0.08) 1px, transparent 1px),
+        #050d19;
+
+    background-size: 72px 72px;
+
+    box-shadow:
+        inset 0 0 100px rgba(0, 0, 0, 0.5),
+        0 20px 80px rgba(0, 0, 0, 0.3);
+}
+
+.road {
+    position: absolute;
+    inset: 0;
+}
+
+.road-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    width: 3px;
+
+    background:
+        linear-gradient(to bottom,
+            transparent 0%,
+            transparent 5%,
+            rgba(220, 240, 255, 0.6) 5%,
+            rgba(220, 240, 255, 0.6) 8%,
+            transparent 8%,
+            transparent 14%);
+
+    background-size: 100% 100px;
+}
+
+.road-line.one {
+    left: 32%;
+}
+
+.road-line.two {
+    left: 67%;
+}
+
+/* =========================
+       TELEMETRY
+    ========================== */
+
+.telemetry {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+
+    width: 250px;
+
+    padding: 20px;
+
+    border: 1px solid rgba(77, 170, 235, 0.35);
+    border-radius: 20px;
+
+    background: rgba(7, 18, 33, 0.9);
+
+    z-index: 5;
+}
+
+.telemetry-title {
+    color: #8392a7;
+    font-family: Orbitron;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.speed-box {
+    margin-top: 12px;
+
+    display: flex;
+    align-items: end;
+    gap: 10px;
+}
+
+.speed-number {
+    font-family: Orbitron;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.kmh {
+    color: #8fc9e8;
+    font-family: Orbitron;
+    font-size: 10px;
+    margin-bottom: 8px;
+}
+
+.gear {
+    position: absolute;
+    right: 18px;
+    top: 22px;
+
+    border-left: 1px solid var(--border);
+    padding-left: 14px;
+
+    font-family: Orbitron;
+}
+
+.gear small {
+    color: #8a9bb1;
+    font-size: 8px;
+}
+
+.gear strong {
+    display: block;
+
+    margin-top: 8px;
+    padding: 6px 10px;
+
+    border: 1px solid #3c648e;
+    border-radius: 6px;
+
+    font-size: 18px;
+}
+
+/* =========================
+       FINISH LINE
+    ========================== */
+
+.finish {
+    position: absolute;
+    left: 10%;
+    bottom: 12%;
+
+    width: 180px;
+    height: 180px;
+
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--orange);
+
+    font-family: Orbitron;
+
+    box-shadow:
+        0 0 35px rgba(255, 174, 36, 0.25),
+        inset 0 0 30px rgba(255, 174, 36, 0.08);
+
+    z-index: 4;
+}
+
+.finish::before {
+    content: "";
+
+    position: absolute;
+    inset: 18px;
+
+    border: 1px dashed rgba(255, 174, 36, 0.6);
+    border-radius: 50%;
+}
+
+.finish span {
+    font-size: 14px;
+}
+
+.finish b {
+    width: 82px;
+    height: 82px;
+
+    margin: 8px 0;
+
+    border: 2px solid var(--orange);
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    color: white;
+    font-size: 30px;
+
+    z-index: 2;
+}
+
+.finish small {
+    font-family: "Space Grotesk";
+    color: var(--muted);
+    font-size: 9px;
+    text-align: center;
+}
+
+/* =========================
+       STATIONS
+    ========================== */
+
+.station {
+    position: absolute;
+
+    transform: translate(-50%, -50%);
+
+    border: 1px solid rgba(74, 173, 235, 0.35);
+    background: rgba(6, 18, 32, 0.9);
+
+    color: #cceafa;
+
+    padding: 10px 15px;
+    border-radius: 999px;
+
+    font-family: Orbitron;
+    font-size: 9px;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 10;
+}
+
+.station:hover,
+.station.active {
+    border-color: var(--cyan);
+    color: white;
+
+    box-shadow: 0 0 25px rgba(56, 216, 255, 0.35);
+}
+
+.station-dot {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 6px;
+
+    background: var(--cyan);
+    border-radius: 50%;
+
+    box-shadow: 0 0 10px var(--cyan);
+}
+
+/* =========================
+       CAR
+    ========================== */
+
+.car {
+    position: absolute;
+    top: 50%;
+
+    width: 75px;
+    height: 50px;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 20;
+
+    transition: left 0.2s cubic-bezier(.2, .8, .2, 1);
+}
+
+.car-body {
+    position: absolute;
+
+    left: 10px;
+    top: 8px;
+
+    width: 55px;
+    height: 35px;
+
+    border: 3px solid var(--cyan);
+    border-radius: 14px 14px 10px 10px;
+
+    background: rgba(30, 125, 160, 0.25);
+
+    box-shadow:
+        0 0 18px var(--cyan),
+        inset 0 0 15px rgba(56, 216, 255, 0.3);
+}
+
+.car-body::before {
+    content: "";
+
+    position: absolute;
+
+    left: 10px;
+    right: 10px;
+    top: -10px;
+
+    height: 18px;
+
+    border: 2px solid var(--cyan);
+    border-bottom: none;
+
+    border-radius: 12px 12px 0 0;
+
+    background: rgba(56, 216, 255, 0.12);
+}
+
+.wheel {
+    position: absolute;
+
+    width: 10px;
+    height: 17px;
+
+    background: #0b111c;
+
+    border: 2px solid #4b617a;
+
+    border-radius: 5px;
+}
+
+.w1 {
+    left: 5px;
+    top: 8px;
+}
+
+.w2 {
+    right: 5px;
+    top: 8px;
+}
+
+.w3 {
+    left: 5px;
+    bottom: 3px;
+}
+
+.w4 {
+    right: 5px;
+    bottom: 3px;
+}
+
+/* =========================
+       CONTROLS
+    ========================== */
+
+.controls {
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 10px;
+
+    z-index: 30;
+}
+
+.controls button {
+    border: 1px solid var(--border);
+    background: #091525;
+
+    color: white;
+
+    padding: 13px 17px;
+    border-radius: 12px;
+
+    cursor: pointer;
+}
+
+.inspect-btn {
+    background: linear-gradient(90deg, #0d637c, #203d80) !important;
+
+    font-family: Orbitron;
+    font-size: 10px;
+}
+
+.hint {
+    position: absolute;
+    right: 24px;
+    bottom: 28px;
+
+    color: #6f8299;
+
+    font-family: Orbitron;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+/* =========================
+       PORTFOLIO SECTIONS
+    ========================== */
+
+.portfolio {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 30px;
+}
+
+.section {
+    padding: 80px 0;
+    border-top: 1px solid var(--border);
+}
+
+.section-head {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    margin-bottom: 35px;
+}
+
+.section-icon {
+    width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(56, 216, 255, 0.4);
+    border-radius: 14px;
+
+    color: var(--cyan);
+
+    font-size: 22px;
+}
+
+.section-number {
+    color: var(--cyan);
+    font-family: Orbitron;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.section h2 {
+    margin-top: 7px;
+
+    font-family: Orbitron;
+    font-size: clamp(26px, 4vw, 45px);
+}
+
+/* ABOUT */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 18px;
+}
+
+.about-text {
+    color: #c5d2df;
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+.info-card,
+.cert-card,
+.timeline-card {
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    background: linear-gradient(145deg,
+            rgba(11, 28, 48, 0.9),
+            rgba(5, 15, 27, 0.7));
+}
+
+.info-card .big {
+    font-size: 28px;
+    color: var(--cyan);
+}
+
+.info-card b {
+    display: block;
+    margin-top: 12px;
+}
+
+.info-card p {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* SKILLS */
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.skill {
+    padding: 14px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--card);
+
+    transition: 0.3s;
+}
+
+.skill:hover {
+    transform: translateY(-5px);
+    border-color: var(--cyan);
+    box-shadow: 0 10px 30px rgba(56, 216, 255, 0.12);
+}
+
+.skill span {
+    color: var(--cyan);
+    font-family: Orbitron;
+    font-size: 9px;
+    margin-right: 8px;
+}
+
+/* PROJECTS */
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.project {
+    min-height: 350px;
+
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: 22px;
+
+    background: linear-gradient(145deg, #0a1728, #050d18);
+
+    position: relative;
+    overflow: hidden;
+
+    transition: 0.35s;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    border-color: var(--cyan);
+}
+
+.project-number {
+    color: #73849a;
+    font-family: Orbitron;
+}
+
+.project-tag {
+    margin-top: 50px;
+
+    color: var(--cyan);
+    font-family: Orbitron;
+    font-size: 10px;
+}
+
+.project h3 {
+    margin: 13px 0;
+
+    font-family: Orbitron;
+    font-size: 21px;
+}
+
+.project p {
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+
+    margin-top: 24px;
+}
+
+.tech-stack span {
+    border: 1px solid var(--border);
+
+    padding: 6px 9px;
+    border-radius: 7px;
+
+    color: #a8bbce;
+    font-size: 10px;
+}
+
+/* EXPERIENCE */
+
+.timeline-card {
+    display: flex;
+    gap: 20px;
+}
+
+.timeline-dot {
+    width: 13px;
+    height: 13px;
+
+    margin-top: 5px;
+
+    background: var(--cyan);
+    border-radius: 50%;
+
+    box-shadow: 0 0 15px var(--cyan);
+}
+
+.timeline-card small {
+    color: var(--cyan);
+    font-family: Orbitron;
+    letter-spacing: 2px;
+    font-size: 9px;
+}
+
+.timeline-card h3 {
+    margin: 10px 0;
+    font-family: Orbitron;
+}
+
+.timeline-card p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* CERTIFICATES */
+
+.certs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.cert-card {
+    transition: 0.3s;
+}
+
+.cert-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--purple);
+}
+
+.cert-icon {
+    color: var(--cyan);
+    font-size: 28px;
+}
+
+.cert-card b {
+    display: block;
+    margin-top: 15px;
+}
+
+.cert-card p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* CONTACT */
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 50px;
+}
+
+.contact h2 {
+    font-size: clamp(30px, 5vw, 56px);
+}
+
+.contact h2 span {
+    color: var(--cyan);
+}
+
+.contact p {
+    margin-top: 14px;
+    color: var(--muted);
+}
+
+.contact-links {
+    min-width: 230px;
+    display: grid;
+    gap: 10px;
+}
+
+.contact-links a {
+    padding: 14px 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    color: var(--text);
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.contact-links a:hover {
+    color: var(--cyan);
+    border-color: var(--cyan);
+}
+
+/* FOOTER */
+
+footer {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 30px;
+
+    border-top: 1px solid var(--border);
+
+    display: flex;
+    justify-content: space-between;
+
+    color: #718299;
+    font-size: 12px;
+}
+
+/* MODAL */
+
+.modal-bg {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 5, 12, 0.75);
+    backdrop-filter: blur(8px);
+
+    z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.modal-bg.show {
+    display: flex;
+}
+
+.modal {
+    position: relative;
+
+    width: min(500px, 100%);
+
+    padding: 38px;
+
+    border: 1px solid rgba(56, 216, 255, 0.4);
+    border-radius: 22px;
+
+    background: #091626;
+
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.6);
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+.modal small {
+    color: var(--cyan);
+    font-family: Orbitron;
+    letter-spacing: 2px;
+}
+
+.modal h2 {
+    margin-top: 14px;
+
+    font-family: Orbitron;
+    font-size: 34px;
+}
+
+.modal p {
+    margin-top: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+/* CLASSIC MODE */
+
+#classicContent {
+    display: none;
+}
+
+body.classic #classicContent {
+    display: block;
+}
+
+body.classic #driveContent {
+    display: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+
+    .mode-switch {
+        display: none;
+    }
+
+    .about-grid,
+    .projects,
+    .certs {
+        grid-template-columns: 1fr;
+    }
+
+    .contact {
+        display: block;
+    }
+
+    .contact-links {
+        margin-top: 25px;
+    }
+
+    .telemetry {
+        transform: scale(0.82);
+        transform-origin: top left;
+    }
+
+    .finish {
+        transform: scale(0.72);
+        transform-origin: bottom left;
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 0 15px;
+    }
+
+    .brand h3 {
+        font-size: 10px;
+    }
+
+    .resume-btn {
+        display: none;
+    }
+
+    .hero,
+    .portfolio {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .arena {
+        min-height: 570px;
+        border-radius: 18px;
+    }
+
+    .station {
+        font-size: 7px;
+        padding: 8px 10px;
+    }
+
+    .station:nth-child(n+6) {
+        display: none;
+    }
+
+    .finish {
+        left: 3%;
+        bottom: 80px;
+    }
+
+    .hint {
+        display: none;
+    }
+
+    footer {
+        display: block;
+        line-height: 2;
+    }
+}
+
+</style></head><body><div class="background-grid"></div><div class="glow one"></div><div class="glow two"></div>< !--=========================NAVBAR==========================--><header><div class="brand"><div class="logo">DS</div><div><h3>Devansh Sharma Portfolio</h3><small>PORTFOLIO</small></div></div><div class="mode-switch"><button id="driveModeBtn" class="active" onclick="setMode('drive')">🚗 Drive Mode </button><button id="classicModeBtn" onclick="setMode('classic')">▱ Classic Scroll </button></div><div class="actions"><button class="icon-btn" onclick="toggleTheme()">☀ </button>< !-- CHANGE GITHUB LINK --><a class="icon-btn"
+href="https://github.com/"
+target="_blank">GitHub </a><a class="resume-btn"
+href="#"
+onclick="alert('Add your Resume PDF link here')">Resume ↗ </a></div></header>< !--=========================DRIVE MODE==========================--><div id="driveContent"><section class="hero"><div class="eyebrow">CYBER CAR INTERACTIVE SIMULATOR </div><h1>Drive Through My Portfolio</h1><p>Navigate the cyber circuit. Drive into any station to inspect projects,
+skills,
+certifications and more. </p></section><section class="arena"><div class="road"><div class="road-line one"></div><div class="road-line two"></div></div>< !-- TELEMETRY --><div class="telemetry"><div class="telemetry-title">TELEMETRY VELOCITY </div><div class="speed-box"><div class="speed-number" id="speed">000 </div><div class="kmh">KM/H </div></div><div class="gear"><small>GEAR</small><strong id="gear">P </strong></div></div>< !-- FINISH --><div class="finish"><span>FINISH LINE</span><b id="distance">95 </b><small>GitHub,
+LinkedIn<br>and Socials </small></div>< !-- STATIONS --><button class="station"
+style="left: 25%; top: 70%;"
+onclick="goStation('about')"><span class="station-dot"></span>ABOUT </button><button class="station"
+style="left: 42%; top: 40%;"
+onclick="goStation('skills')"><span class="station-dot"></span>SKILLS </button><button class="station"
+style="left: 57%; top: 67%;"
+onclick="goStation('projects')"><span class="station-dot"></span>PROJECTS </button><button class="station"
+style="left: 74%; top: 35%;"
+onclick="goStation('experience')"><span class="station-dot"></span>EXPERIENCE </button><button class="station"
+style="left: 86%; top: 64%;"
+onclick="goStation('certifications')"><span class="station-dot"></span>CERTS </button>< !-- CAR --><div class="car"
+id="car"
+style="left: 5%;"><div class="car-body"></div><div class="wheel w1"></div><div class="wheel w2"></div><div class="wheel w3"></div><div class="wheel w4"></div></div>< !-- CONTROLS --><div class="controls"><button onclick="moveCar(-5)">← </button><button class="inspect-btn"
+onclick="inspectNearest()">▶ INSPECT STATION </button><button onclick="moveCar(5)">→ </button><button onclick="resetCar()">↻ </button></div><div class="hint">USE ← / → OR A / D TO DRIVE </div></section><section class="portfolio"><div class="section"><div class="section-head"><div class="section-icon">↓ </div><div><div class="section-number">EXPLORE MORE </div><h2>Portfolio Stations </h2></div></div><p style="color: var(--muted); line-height: 1.7;">Use the car simulator above or scroll down to explore my complete portfolio. </p></div></section></div>< !--=========================CLASSIC PORTFOLIO==========================--><div id="classicContent"><section class="hero"><div class="eyebrow">DEVANSH SHARMA / PORTFOLIO </div><h1>AI-driven ideas.<br>Real-world engineering. </h1><p>AI/ML Developer • Software Engineer • Python Developer • Full Stack Developer </p></section></div>< !--=========================MAIN PORTFOLIO==========================--><main class="portfolio">< !-- ABOUT --><section class="section"
+id="about"><div class="section-head"><div class="section-icon">✦ </div><div><div class="section-number">01 / ABOUT </div><h2>Building intelligent digital experiences. </h2></div></div><div class="about-grid"><p class="about-text">I am an aspiring software engineer focused on Artificial Intelligence,
+Machine Learning,
+Python and modern web development. I enjoy turning practical problems into clean,
+interactive and useful products. </p><div class="info-card"><div class="big">🤖 </div><b>Focus </b><p>AI/ML • Software Engineering • Full Stack Development </p></div><div class="info-card"><div class="big">💻 </div><b>Approach </b><p>Problem-solving,
+experimentation and continuous learning. </p></div></div></section>< !-- SKILLS --><section class="section"
+id="skills"><div class="section-head"><div class="section-icon">⚙ </div><div><div class="section-number">02 / SKILLS </div><h2>Technology stack. </h2></div></div><div class="skills"><div class="skill"><span>01</span>Python</div><div class="skill"><span>02</span>JavaScript</div><div class="skill"><span>03</span>React.js</div><div class="skill"><span>04</span>FastAPI</div><div class="skill"><span>05</span>Machine Learning</div><div class="skill"><span>06</span>Artificial Intelligence</div><div class="skill"><span>07</span>SQL</div><div class="skill"><span>08</span>Git & GitHub</div><div class="skill"><span>09</span>HTML & CSS</div><div class="skill"><span>10</span>Data Structures</div></div></section>< !-- PROJECTS --><section class="section"
+id="projects"><div class="section-head"><div class="section-icon">▣ </div><div><div class="section-number">03 / PROJECTS </div><h2>Selected work. </h2></div></div><div class="projects">< !-- PROJECT 1 --><article class="project"><div class="project-number">01 </div><div class="project-tag">AI / COMPUTER VISION </div><h3>Crash Guard AI </h3><p>AI-powered accident detection and emergency alert concept using computer vision and real-time workflows. </p><div class="tech-stack"><span>Python</span><span>AI/ML</span><span>Computer Vision</span><span>FastAPI</span></div></article>< !-- PROJECT 2 --><article class="project"><div class="project-number">02 </div><div class="project-tag">FULL STACK </div><h3>Insurance Comparison System </h3><p>A system for comparing insurance plans,
+policies and relevant details through a clean decision-oriented interface. </p><div class="tech-stack"><span>React</span><span>JavaScript</span><span>API</span><span>Database</span></div></article>< !-- PROJECT 3 --><article class="project"><div class="project-number">03 </div><div class="project-tag">WEB APPLICATION </div><h3>Healthcare Appointment System </h3><p>Appointment scheduling workflow designed to simplify patient and healthcare service coordination. </p><div class="tech-stack"><span>React</span><span>Python</span><span>Database</span><span>UI/UX</span></div></article></div></section>< !-- EXPERIENCE --><section class="section"
+id="experience"><div class="section-head"><div class="section-icon">◈ </div><div><div class="section-number">04 / EXPERIENCE </div><h2>Experience & learning. </h2></div></div><div class="timeline-card"><div class="timeline-dot"></div><div><small>ONGOING DEVELOPMENT </small><h3>Software Development & AI/ML Projects </h3><p>Hands-on project development with Python,
+web technologies,
+APIs,
+databases and AI/ML concepts. </p></div></div></section>< !-- CERTIFICATIONS --><section class="section"
+id="certifications"><div class="section-head"><div class="section-icon">★ </div><div><div class="section-number">05 / CERTIFICATIONS </div><h2>Continuous upskilling. </h2></div></div><div class="certs"><div class="cert-card"><div class="cert-icon">🏆 </div><b>Machine Learning </b><p>Learning and project-based practice. </p></div><div class="cert-card"><div class="cert-icon">💻 </div><b>Programming </b><p>Python and modern web technologies. </p></div><div class="cert-card"><div class="cert-icon">⚡ </div><b>Artificial Intelligence </b><p>Applied AI concepts and experimentation. </p></div></div></section>< !-- CONTACT --><section class="section"
+id="contact"><div class="contact"><div><div class="eyebrow">06 / CONTACT </div><h2>Let's build something
+ <span>meaningful.</span></h2><p>Open to opportunities,
+collaborations and interesting software projects. </p></div><div class="contact-links">< !-- CHANGE EMAIL --><a href="mailto:your-email@example.com">📧 Email Me </a>< !-- CHANGE GITHUB --><a href="https://github.com/"
+target="_blank">💻 GitHub </a>< !-- CHANGE LINKEDIN --><a href="https://linkedin.com/"
+target="_blank">🔗 LinkedIn </a></div></div></section></main>< !--=========================MODAL==========================--><div class="modal-bg"
+id="modalBg"
+onclick="closeModal(event)"><div class="modal"><button class="modal-close"
+onclick="closeModalDirect()">× </button><small>DRIVE STATION </small><h2 id="modalTitle">ABOUT </h2><p id="modalText"></p></div></div>< !--=========================FOOTER==========================--><footer><span>© 2026 Devansh Sharma </span><span>Built with HTML,
+CSS & JavaScript </span></footer>< !--=========================JAVASCRIPT==========================--><script>let carPosition=5;
+let speed=0;
+
+const stations= {
+    about: {
+        position: 25,
+            title: "ABOUT",
+            text: "An introduction to my interests in AI/ML, Python, software engineering and modern web development."
+    }
+
+    ,
+
+    skills: {
+        position: 42,
+            title: "SKILLS",
+            text: "Python, JavaScript, React.js, FastAPI, Machine Learning, AI, SQL, Git and other development technologies."
+    }
+
+    ,
+
+    projects: {
+        position: 57,
+            title: "PROJECTS",
+            text: "Explore Crash Guard AI, Insurance Comparison System and Healthcare Appointment System."
+    }
+
+    ,
+
+    experience: {
+        position: 74,
+            title: "EXPERIENCE",
+            text: "Hands-on project development and continuous learning in software engineering and AI/ML."
+    }
+
+    ,
+
+    certifications: {
+        position: 86,
+            title: "CERTIFICATIONS",
+            text: "A dedicated section for certifications, achievements and continuous upskilling."
+    }
+}
+
+;
+
+
+function updateCar() {
+
+    document .getElementById("car") .style.left=carPosition+"%";
+
+
+    document .getElementById("speed") .textContent=String(Math.round(speed)).padStart(3, "0");
+
+
+    document .getElementById("gear") .textContent=speed>0 ? "D": "P";
+
+
+    document .getElementById("distance") .textContent=String(Math.max(0,
+            Math.round(100 - carPosition))).padStart(2, "0");
+
+}
+
+
+function moveCar(amount) {
+
+    carPosition+=amount;
+
+    if (carPosition < 3) {
+        carPosition=3;
+    }
+
+    if (carPosition > 92) {
+        carPosition=92;
+    }
+
+
+    if (amount > 0) {
+        speed=Math.min(180, speed + 15);
+    }
+
+    else {
+        speed=Math.max(0, speed - 10);
+    }
+
+
+    updateCar();
+
+}
+
+
+function resetCar() {
+
+    carPosition=5;
+    speed=0;
+
+    updateCar();
+
+}
+
+
+setInterval(function () {
+
+        if (speed > 0) {
+
+            speed -=1;
+
+            updateCar();
+
+        }
+
+    }
+
+    , 100);
+
+
+document.addEventListener("keydown", function (event) {
+
+        if (event.key==="ArrowRight" || event.key==="d" || event.key==="D") {
+
+            moveCar(3);
+
+        }
+
+
+        if (event.key==="ArrowLeft" || event.key==="a" || event.key==="A") {
+
+            moveCar(-3);
+
+        }
+
+
+        if (event.key===" ") {
+
+            speed=0;
+
+            updateCar();
+
+        }
+
+    });
+
+
+function goStation(id) {
+
+    carPosition=stations[id].position;
+
+    speed=0;
+
+    updateCar();
+
+    showStation(id);
+
+}
+
+
+function inspectNearest() {
+
+    let nearest=null;
+    let smallestDistance=Infinity;
+
+
+    for (let id in stations) {
+
+        let distance=Math.abs(carPosition - stations[id].position);
+
+
+        if (distance < smallestDistance) {
+
+            smallestDistance=distance;
+            nearest=id;
+
+        }
+
+    }
+
+
+    showStation(nearest);
+
+}
+
+
+function showStation(id) {
+
+    const station=stations[id];
+
+
+    document .getElementById("modalTitle") .textContent=station.title;
+
+
+    document .getElementById("modalText") .textContent=station.text;
+
+
+    document .getElementById("modalBg") .classList.add("show");
+
+}
+
+
+function closeModal(event) {
+
+    if (event.target.id==="modalBg"
+
+    ) {
+
+        document .getElementById("modalBg") .classList.remove("show");
+
+    }
+
+}
+
+
+function closeModalDirect() {
+
+    document .getElementById("modalBg") .classList.remove("show");
+
+}
+
+
+function setMode(mode) {
+
+    const driveBtn=document.getElementById("driveModeBtn");
+
+
+    const classicBtn=document.getElementById("classicModeBtn");
+
+
+    if (mode==="drive") {
+
+        document.body.classList.remove("classic");
+
+        driveBtn.classList.add("active");
+
+        classicBtn.classList.remove("active");
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+}
+
+
+if (mode==="classic") {
+
+    document.body.classList.add("classic");
+
+    classicBtn.classList.add("active");
+
+    driveBtn.classList.remove("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+}
+
+
+function toggleTheme() {
+
+    document .body .classList .toggle("light");
+
+}
+
+
+updateCar();
+
+</script></body></html>
